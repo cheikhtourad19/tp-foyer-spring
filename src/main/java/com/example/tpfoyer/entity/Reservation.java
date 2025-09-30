@@ -1,14 +1,12 @@
 package com.example.tpfoyer.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -20,4 +18,8 @@ public class Reservation {
     private Long idReservation;
     private Date anneUnniversitaire;
     private boolean estValide;
+    @ManyToOne()
+    private Chambre chambre;
+    @ManyToMany(mappedBy = "reservations")
+    private Set<Etudiant> etudiants;
 }

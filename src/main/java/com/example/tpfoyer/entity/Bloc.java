@@ -1,10 +1,10 @@
 package com.example.tpfoyer.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
@@ -16,6 +16,12 @@ public class Bloc {
     private Long idBloc;
     private String nomBloc;
     private Long capaciteBloc;
+
+    @ManyToOne()
+    private Foyer foyer;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "bloc")
+    private Set<Chambre> chambres;
 }
 
 
