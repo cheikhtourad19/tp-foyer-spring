@@ -1,4 +1,7 @@
 package com.example.tpfoyer.repository;
 
-public interface Reservationrepository {
+import com.example.tpfoyer.entity.Reservation;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface Reservationrepository extends JpaRepository<Reservation, Long> {
 }
